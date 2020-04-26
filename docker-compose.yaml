@@ -1,0 +1,10 @@
+version: "3"
+services:
+  mock-server:
+    build: ./mock-server
+    container_name: mock-server
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./mock-server/db.json:/data/db.json
+    command: json-server --watch db.json --host 0.0.0.0
