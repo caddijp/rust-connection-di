@@ -36,3 +36,12 @@ where
     let body = reqwest::get(&url).await?.text().await?;
     Ok(body)
 }
+
+#[tokio::test]
+async fn test_get_iss_now() {
+    let config = app::MockExternalApiClient::new();
+    let app = app::MockApplication::new(config);
+
+    let body = get_iss_now(&app).await.unwrap();
+    assert!(body.contains("success"));
+}
