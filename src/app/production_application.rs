@@ -18,9 +18,9 @@ impl ProductionExternalApiClient {
 }
 
 impl Application {
-    pub fn new(config: ProductionExternalApiClient) -> Self {
+    pub fn new(external_api_client: ProductionExternalApiClient) -> Self {
         Self {
-            external_api_client: config,
+            external_api_client,
         }
     }
 }
